@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Raleway:wght@300;400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    --primary-font-family : 'Montserrat', sans-serif;
+    --secondary-font-family : 'Raleway', sans-serif;
+    --tile-bg-color : #98df9b;
+}
+
+.main-container {
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0.5rem 1.5rem 0rem 1.5rem;
+}
+.button-container {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.button-container>h2 {
+    font-size: 1.1rem;
+    color: #2e0249;
+}
+.title>span {
+    font-size: 1.4rem;
+    border-bottom: #a91079;
+    color: #2e0249;
+}
+.new-project-btn {
+    padding: .6rem 1rem;
+    font-family: var(--secondary-font-family);
+    font-weight: 500;
+    font-size: .8rem;
+    color: white;
+    border: none;
+    border-radius: .3rem;
+    background-color: #a91079;
+    cursor: pointer;
+}
+.new-project-btn>a {
+    font-family: var(--secondary-font-family);
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+}
+
+/*----- Project tile ------*/
+.project-tile {
+    margin-top: 0.6rem;
+    padding: .4rem .5rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #2e0249;
+}
+.project-tile p {
+    font-family: var(--primary-font-family);
+    font-size: .9rem;
+    font-weight: 500;
+    padding: .2rem;
+    margin: .2rem 0;
+    color: white;
+}
+.content {
+    padding-left: .3rem;
+    color: #e231aa;
+}
+
+/* modal form css */
+
+#form-modal {
+    width: 68vw;
+    height: 80vh;
+    border-radius: .7rem;
+    position: absolute;
+    top: 0;
+    left: 14vw;
+    background-color: #2e0249;
+    display: none;
+}
+#closebtn {
+    position: absolute;
+    right: .6rem;
+    top: .4rem;
+    color: white;
+    border-radius: 50%;
+    font-family: var(--secondary-font-family);
+    cursor: pointer;
+}
+.form-container-main {
+    width: 100%;
+    height: 90%;
+    padding-top: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blank {
+    height: 20rem;
+    width: 35%;
+    padding: 6rem 2rem 0 1rem;
+    /* border: 1px solid rgb(248, 244, 5); */
+}
+.blank>p {
+    font-family: var(--primary-font-family);
+    color: white;
+    font-weight: 600;
+    font-size: 3.3rem;
+}
+.secondary-text {
+    /* #a91079 */
+    color: #a91079;
+    font-size: 4rem;
+    font-weight: 700;
+}
+.form-container {
+    height: 22rem;
+    width: 45%;
+    border-radius: 1rem;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 0 1rem 0;
+}
+.project-form {
+    width: 84%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid rgb(248, 244, 5); */
+}
+.inputs {
+    width: 100%;
+    height: 1.8rem;
+    margin-bottom: 1.4rem;
+    border: none;
+    padding-left: .6rem;
+    font-family: var(--secondary-font-family);
+    border-bottom: 1.4px solid #706e6f81;
+    outline: none;
+}
+.inputs:focus {
+    border-bottom: 1.4px solid #a91079;
+}
+
+.project-form button {
+    font-family: var(--secondary-font-family);
+    font-weight: 500;
+    font-size: .8rem;
+    color: white;
+    border: none;
+    margin-top: 3rem;
+    padding: .6rem 1.9rem;
+    border-radius: .3rem;
+    background-color: #a91079;
+    cursor: pointer;
+}

@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Raleway:wght@300;400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    --primary-font-family : 'Montserrat', sans-serif;
+    --secondary-font-family : 'Raleway', sans-serif;
+    --tile-bg-color : #98df9b;
+}
+
+nav {
+    height: 8vh;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(226, 224, 224);
+}
+.title {
+    font-family: var(--primary-font-family);
+}
+
+nav p {
+    font-family: var(--secondary-font-family);
+    font-weight: 600;
+    font-size: .9rem;
+    letter-spacing: 1px;
+}

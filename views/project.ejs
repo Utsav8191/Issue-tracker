@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="/js/project.js"></script>
+    <script defer src="/js/searchfilter.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <main class="project-main">
+        <!-- Project details section -->
+        <section class="project-title-container">
+            <p class="project-details">Project Name : <span class="project-details-content"><%= project.name %></span></p>
+            <p class="project-details">Description : <span class="project-details-content"><%= project.description %></span></p>
+            <p class="project-details">Author : <span class="project-details-content"><%= project.author %></span></p>
+        </section>
+        <!-- Section to render all issues -->
+        <div class="title-btn-container">
+            <h2>All Issues</h2>
+            <div>
+            <button id="searchIssue" class="btn">Search Issue</button>
+            <button id="createIssueBtn" class="btn">&plus; Add Issue</button>
+            </div>
+        </div>
+        <section class="issues-container-main">
+            <% if(project.issues.length >= 1) { %>
+                <% for(issue of project.issues) { %>
+            <div class="issue-tile">
+                <p class="project-details">Title : <span class="project-details-content"><%= issue.title %></span></p>
+                <p class="project-details">Description : <span class="project-details-content"><%= issue.description %></span></p>
+                <p class="project-details">Author : <span class="project-details-content"><%= issue.author %></span></p>
+            <!-- to display all labels -->
+            <div class="label-container">
+            <% if(issue.labels.length > 0) { %>               
+                <% for (label of issue.labels) { %>                        
+                <span class="label"><%= label %></span>
+                                    
+                <% } %>              
+            <% } %> 
+            </div>
+            </div>  
+                <% } %>
+            <% } %>
+
+        </section>
+
+        <!-- add issue form modal -->
+        <div class="issue-modal-container">
+            <span id="closebtn">x</span>
+            <div id="form-content">
+                <div class="left-space">
+                    <p class="left-space-text">Add </br> New <span class="secondary-text">Issue</span></p>
+                </div>
+                <form action="/project/createIssue/<%= project._id %>" method="post" class="issue-form">
+                    <input type="text" name="title" class="issue-input" placeholder="title" required>
+                    <textarea name="description" id="issue-textarea" style="height: 2.5rem;" cols="30" rows="10" placeholder="description" required></textarea>
+                    <input type="text" name="author" class="issue-input" placeholder="author" required>
+                    <div class="label-checkbox-container">
+                        <input type="checkbox" name="labels" id="label_1" value="Bug">
+                        <label for="label_1">Bug</label>
+                        <input type="checkbox" name="labels" id="label_2" value="UI Improvement">
+                        <label for="label_2">UI Improvement</label>
+                        <input type="checkbox" name="labels" id="label_3" value="Duplicate">
+                        <label for="label_3">Duplicate</label>
+                        <input type="checkbox" name="labels" id="label_4" value="Documentation">
+                        <label for="label_4">Documentation</label>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Search filter form -->
+        <div class="searchfilter-container-main">
+            <span id="closebtn2">x</span>
+            <div class="form-container">
+                <form action="/" method="get" id="search-issue_form">
+                    <input type="text" id="title-search" class="" name="tie" placeholder="Search by title">
+                    <h3>filter by label</h3>
+                    <!-- Use ID to fetch this checkbox container -->
+                    <div id="chk-box" class="search_checkbox">
+                        <input type="checkbox" name="search_checkbox" value="Bug" id="by_label-1">
+                        <label for="by_label-1">Bug</label>
+                        <input type="checkbox" name="search_checkbox" value="UI Improvement" id="by_label-2">
+                        <label for="by_label-2">UI Improvement</label>
+                        <input type="checkbox" name="search_checkbox" value="Duplicate" id="by_label-3">
+                        <label for="by_label-3">Duplicate</label>
+                        <input type="checkbox" name="search_checkbox" value="Documentation" id="by_label-3">
+                        <label for="by_label-3">Documentation</label>
+                    </div>
+                    <button type="submit" id="submit_filter">Filter</button>
+                </form>
+            </div>
+
+            <!-- Div to show all the filtered issues -->
+            <div id="filterResult-container">
+
+            </div>
+        </div>
+        <div id="issue-data" data="<%=JSON.stringify(project.issues)%>"></div>
+    </main>
+    
+</body>
+</html>

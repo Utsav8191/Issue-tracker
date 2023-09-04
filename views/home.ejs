@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="/js/home.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="button-container">
+          <h2 class="title">Your <span>Projects</span></h2>
+          <button id="projectform-btn" class="new-project-btn">&plus; New Project</button>
+        </div>
+      
+        <!-- project tile -->
+        <% for(let project of allProjects) { %>   
+
+          <% if(allProjects.length > 0) { %>
+            <a href="/project/<%=project._id%>" class="project-tile">
+              <p>Project name : <span class="content"><%= project.name %></span></p>
+              <p>Description : <span class="content"><%= project.description %></span>
+              </p>
+              <p>Author : <span class="content"><%= project.author %></span></p>
+            </a>
+          <% } %>  
+        <% } %>
+    <!-- project form modal -->
+    <div id="form-modal">
+      <span id="closebtn">X</span>
+      <div class="form-container-main">
+        <div class="blank">
+          <p>Add </br> <span class="secondary-text">Project</span></p>
+        </div>
+        <div class="form-container">
+          <form action="/project/create" class="project-form" method="post">
+            <input class="inputs" type="text" name="name" placeholder="project name" required>
+            <textarea class="inputs" style="height: 3rem;" name="description" id="" cols="30" rows="6" placeholder="description" required></textarea>
+            <input class="inputs" type="text" name="author" placeholder="author" required>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+
+    
+</body>
+</html>
